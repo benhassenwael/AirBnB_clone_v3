@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 """ First endpoint route returning the status """
-from flask import Flask
+from flask import Flask, json
 from models import storage
 from api.v1.views import app_views
 from os import getenv
-import json
 
 app = Flask('v1')
 app.register_blueprint(app_views)
@@ -18,7 +17,7 @@ def close_storage(exception):
 @app.errorhandler(404)
 def not_found(error):
     """Handle 404 not found errors and return json object"""
-    return json.dumps({"error": "Not found"}), 404
+    return json.jsonify({"error": "Not found"}), 404
 
 if __name__ == "__main__":
     host = getenv('HBNB_API_HOST', '0.0.0.0')
