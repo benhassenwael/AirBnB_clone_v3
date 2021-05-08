@@ -10,7 +10,7 @@ def get_status():
     """Returns HTTP status 200"""
     return json.dumps({"status": "OK"}), 200
 
-@app_views.route('/api/v1/stats')
+@app_views.route('/stats')
 def get_stats():
     """Returns number of each object by type"""
     objs = {
