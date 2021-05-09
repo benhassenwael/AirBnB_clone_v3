@@ -14,6 +14,7 @@ def close_storage(exception):
     """Close app storage"""
     storage.close()
 
+
 @app.errorhandler(404)
 def not_found(error):
     """Handle 404 not found errors and return json object"""

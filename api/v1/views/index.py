@@ -10,6 +10,7 @@ def get_status():
     """Returns HTTP status 200"""
     return jsonify({"status": "OK"}), 200
 
+
 @app_views.route('/stats', strict_slashes=False)
 def get_stats():
     """Returns number of each object by type"""
@@ -21,5 +22,5 @@ def get_stats():
         "State": "states",
         "User": "users"
     }
-    stats = {name : storage.count(cls) for cls, name in objs.items()}
+    stats = {name: storage.count(cls) for cls, name in objs.items()}
     return jsonify(stats)
